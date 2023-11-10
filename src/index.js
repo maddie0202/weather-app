@@ -15,8 +15,13 @@ function showTemperature(response) {
   let windEl = document.querySelector(".wind");
   let wind = Math.round(response.data.daily[now.getDay()].wind.speed);
   windEl.innerHTML = wind;
+  console.log(response.data);
+  let iconEl = document.getElementById("icon");
+  let icon = `<img src="${
+    response.data.daily[now.getDay()].condition.icon_url
+  }" class="icon" />`;
+  iconEl.innerHTML = icon;
 }
-
 function search(event) {
   event.preventDefault();
   let cityInput = document.getElementById("cityInput").value;

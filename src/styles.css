@@ -33,11 +33,13 @@ form {
   border: #504f4f;
 }
 h2 {
-  font-size: 100px;
-  margin: 20px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
-
+.icon {
+  width: 200px;
+  height: 180px;
+}
 h3 {
   font-size: 90px;
   margin: 20px;
@@ -48,17 +50,13 @@ h3 {
 h4 {
   text-align: center;
   font-size: 40px;
-  margin: 20px;
+  margin: 40px;
   margin-bottom: 40px;
 }
 a {
   text-decoration: none;
 }
-.fahrenheit {
-  position: relative;
-  top: -50px;
-  font-size: 30px;
-}
+
 .dayTime {
   text-align: center;
   margin: 20px;
