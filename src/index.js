@@ -44,6 +44,8 @@ function showTemperature(response) {
   let dayEl = document.getElementById("todayWeekName");
   let day = formatDay(date);
   dayEl.innerHTML = day;
+
+  getForecast(response.data.city);
 }
 function search(event) {
   event.preventDefault();
@@ -54,5 +56,35 @@ function search(event) {
   axios.get(apiUrl).then(showTemperature);
 }
 
+function displayForecast(response) {
+  let forecastHtml = "";
+  response.data.daily.forEach(function (day, index) {
+    let date = new Date(day.time * 1000);
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `<div class="row">
+          <div class="daysOfWeek">${formatDay(date)}</div>
+          <div class="icons"><img src="${
+            day.condition.icon_url
+          }" class="weather-forecast-icon" /></div>
+          <div class="degree"><strong>${Math.round(
+            day.temperature.maximum
+          )}° </strong> | <span> ${Math.round(
+          day.temperature.minimum
+        )} °</span></div>
+        </div>`;
+    }
+  });
+  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
+function getForecast(city) {
+  let apiKey = "35obt3d4a77e941e006826ae0feb45c4";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
 let city = document.getElementById("searchForm");
 city.addEventListener("submit", search);

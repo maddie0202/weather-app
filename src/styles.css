@@ -67,7 +67,22 @@ a {
   margin: 20px;
   font-size: 25px;
 }
-
+.daysOfWeek {
+  text-align: center;
+  font-size: 22px;
+}
+.icons {
+  text-align: center;
+  font-size: 25px;
+}
+.degree {
+  text-align: center;
+  font-size: 22px;
+}
+.weather-forecast {
+  display: flex;
+  justify-content: space-around;
+}
 footer {
   text-align: center;
   font-size: 20px;
