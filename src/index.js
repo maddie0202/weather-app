@@ -30,10 +30,10 @@ function showTemperature(response) {
   weatherConditionEl.innerHTML = weatherCindition;
   let humidityEl = document.querySelector(".humidity");
   let humidity = response.data.temperature.humidity;
-  humidityEl.innerHTML = humidity;
+  humidityEl.innerHTML = `${humidity}%`;
   let windEl = document.querySelector(".wind");
   let wind = Math.round(response.data.wind.speed);
-  windEl.innerHTML = wind;
+  windEl.innerHTML = `${wind} km/h`;
   let iconEl = document.getElementById("icon");
   let icon = `<img src="${response.data.condition.icon_url}" class="icon" />`;
   iconEl.innerHTML = icon;
